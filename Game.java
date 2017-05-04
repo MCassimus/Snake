@@ -1,12 +1,8 @@
 public class Game
 {
-    public Game()
+    public Game(Window window)
     {
         Snake snake = new Snake();
         
-        while(true)
-        {
-            
-        }
     }
 }
