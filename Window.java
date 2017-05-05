@@ -1,6 +1,11 @@
 import java.applet.Applet;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 
 public class Window extends Applet
 {
@@ -11,9 +16,9 @@ public class Window extends Applet
     public void paint(Graphics g)
     {
         resize((int)screenWidth, (int)screenHeight);
-        g.setColor(new java.awt.Color(153, 0, 0));
+        g.setColor(new java.awt.Color(227, 66, 52));
         g.fillRect(0, 0, 800, 600);//Set the background to black
-        
+
         new Game(this);
     }
     
