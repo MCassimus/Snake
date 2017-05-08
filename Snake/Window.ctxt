@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Window
+comment1.params=g
+comment1.target=void\ paint(java.awt.Graphics)
+comment2.params=
+comment2.target=double\ getScreenWidth()
+comment3.params=
+comment3.target=double\ getScreenHeight()
+numComments=4
