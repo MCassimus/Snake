@@ -1,13 +1,22 @@
 import java.applet.Applet;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Event;
 
-public class Window extends Applet
+//https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyListener.html
+//https://docs.oracle.com/javase/7/docs/api/java/awt/Component.html#addKeyListener(java.awt.event.KeyListener)
+//https://docs.oracle.com/javase/7/docs/api/java/applet/Applet.html
+//https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
+
+
+public class Window extends Applet implements KeyListener
 {
     private double screenWidth = 800;
     private double screenHeight = 600;
     private double boxWidth = 10;
     private double boxHeight = 10;
+    private Graphics graphics;
+    private KeyEvent keyboard;
     //board data aliases
     private int emptyID = 0;//empty space
     private int snakeID = 1;//represents a snake segment
@@ -17,9 +26,11 @@ public class Window extends Applet
     public void paint(Graphics g)
     {
         resize((int)screenWidth, (int)screenHeight);
-        g.setColor(new java.awt.Color(0, 0, 0));
-        g.fillRect(0, 0, 800, 600);//Set the background to black
-
+        addKeyListener(keyboard);
+        graphics = g;
+        graphics.setColor(new java.awt.Color(0, 0, 0));
+        graphics.fillRect(0, 0, 800, 600);//Set the background to black
+        
         new Game(this);
     }
     
@@ -34,9 +45,7 @@ public class Window extends Applet
     
     public void drawBoard(int [][] board)
     {
-        //calculate box dimensions
-        boxHeight = getScreenHeight() / board[0].length;
-        boxWidth = getScreenWidth() / board.length;
+        
         
         //draw elements
         for(int y = 0; y < board[0].length; y++)
@@ -45,7 +54,7 @@ public class Window extends Applet
             {
                 if(board[x][y] == emptyID)
                 {
-                    //draw black box of dimensions boxX x boxY
+                    graphics.fillRect( x * (int)boxWidth, y * (int)boxHeight , (int)boxWidth, (int)boxHeight);
                 }
                 else if(board[x][y] == snakeID)
                 {
