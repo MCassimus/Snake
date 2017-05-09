@@ -5,4 +5,6 @@ comment1.params=
 comment1.target=double\ getScreenWidth()
 comment2.params=
 comment2.target=double\ getScreenHeight()
-numComments=3
+comment3.params=board
+comment3.target=void\ drawBoard(int[][])
+numComments=4
