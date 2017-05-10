@@ -1,33 +1,13 @@
-
-/**
- * Write a description of class SnakeHead here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class SnakeHead
+public class SnakeHead extends SnakeSegment
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class SnakeHead
-     */
-    public SnakeHead()
+    //0 is right, 1 is up, 2 is left, 3 is down
+    int direction;
+     
+    
+    public SnakeHead(int initX, int initY)
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        super();
+        setPositions(initX, initY);
+        direction = 0;
     }
 }

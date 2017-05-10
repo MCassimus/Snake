@@ -2,8 +2,8 @@ public class SnakeSegment
 {
     private int x, y;
     private SnakeSegment parent;
-    
-    
+
+
     public SnakeSegment(SnakeSegment s) 
     {
         x = s.getX();
@@ -31,4 +31,11 @@ public class SnakeSegment
         
     public int getY()
     { return y; }
+    
+    
+    public void setPositions(int newX, int newY)
+    {
+        x = newX;
+        y = newY;
+    }
 }
