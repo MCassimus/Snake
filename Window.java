@@ -22,13 +22,20 @@ public class Window extends Applet implements KeyListener
     //board data aliases
     private int emptyID = 0;//empty space
     private int snakeID = 1;//represents a snake segment
-    private int foodID = 2;//represents food item
+    private int foodID = 2;//represents food 
+    char c;
+    
+    
+    public void init()
+    {
+        addKeyListener(this);
+    }
     
     //This is the entry point of the application
     public void paint(Graphics g)
     {
-        System.out.println("true");
-        setFocusable(true);
+        //g.drawCharacter(c, 100, 150);
+        //showStatus("You typed " + c + " character");
         
         resize((int)screenWidth, (int)screenHeight);
         graphics = g;
@@ -36,6 +43,7 @@ public class Window extends Applet implements KeyListener
         graphics.fillRect(0, 0, 800, 600);//Set the background to black
         
         new Game(this);
+        System.out.println("This is a test3");
     }
     
     
@@ -73,14 +81,19 @@ public class Window extends Applet implements KeyListener
     
     public void keyPressed(KeyEvent e)
     {
-        System.out.println("Hi");
+         c += e.getKeyChar();
+         String temp = "" + c;
+         showStatus(temp);
     }
     
     
     public void keyReleased(KeyEvent e)
-    { /*We don't take key released events*/ };
+    { 
+       
+    }
     
     
     public void keyTyped(KeyEvent e)
-    { /*We don't take key typed events*/ };
+    { /*We don't take key typed events*/ }
 }
+

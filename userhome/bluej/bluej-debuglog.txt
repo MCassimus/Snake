@@ -1,12 +1,18 @@
-BlueJ run started: Thu May 04 11:40:48 CDT 2017
+BlueJ run started: Fri May 12 11:18:28 CDT 2017
 BlueJ version 3.1.7
 Java version 1.8.0_40
 Virtual machine: Java HotSpot(TM) Client VM 25.40-b25 (Oracle Corporation)
 Running on: Windows 7 6.1 (x86)
-Java Home: F:\Jabba Java\BlueJ - Gross\BlueJ\jdk\jre
+Java Home: E:\Jabba Java\BlueJ - Gross\BlueJ\jdk\jre
 ----
 Detected language "english" based on iso639-2 code "eng"
-Opening project: C:\Users\18mac03\Desktop\Snake\Snake
-1493916048620: Listening for JDWP connection on address: javadebug
+Opening project: C:\Users\18mac03\Documents\GitHub\Snake
+1494605910571: Listening for JDWP connection on address: javadebug
+Connected to debug VM via dt_shmem transport...
+Communication with debug VM fully established.
+1494607738320: Listening for JDWP connection on address: javadebug
+Connected to debug VM via dt_shmem transport...
+Communication with debug VM fully established.
+1494607756306: Listening for JDWP connection on address: javadebug
 Connected to debug VM via dt_shmem transport...
 Communication with debug VM fully established.

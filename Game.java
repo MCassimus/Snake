@@ -2,7 +2,7 @@ public class Game
 {
     int [][] board;
     Window win;
-    Snake snake;
+    SnakeHead snake;
     Food food;
     //board data aliases
     private int emptyID = 0;//empty space
@@ -11,17 +11,17 @@ public class Game
     
     public Game(Window window)
     {
+        System.out.println("This is a test2");
         win = window;
-        
         newGame();
         
-        while(snake.isAlive())
-        {
-            if(snake.update())//if update returns true, make new food
-                food.newPos();
+        //while(snake.isAlive())
+       // {
+           // if(snake.update())//if update returns true, make new food
+            //    food.newPos();
                 
-            window.drawBoard(board);
-        }
+           // window.drawBoard(board);
+       // }
     }
     
     
@@ -35,7 +35,7 @@ public class Game
                 board[x][y] = emptyID;
                 
         //create objects
-        snake = new Snake(board);
-        food = new Food(board);
+        //snake = new Snake(board);
+        //food = new Food(board);
     }
 }
