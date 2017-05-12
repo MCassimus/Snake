@@ -1,7 +1,9 @@
 import java.applet.Applet;
 import java.awt.Graphics;
 import java.awt.Color;
-import java.awt.Event;
+import java.awt.Component;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
 //https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyListener.html
 //https://docs.oracle.com/javase/7/docs/api/java/awt/Component.html#addKeyListener(java.awt.event.KeyListener)
@@ -25,8 +27,10 @@ public class Window extends Applet implements KeyListener
     //This is the entry point of the application
     public void paint(Graphics g)
     {
+        System.out.println("true");
+        setFocusable(true);
+        
         resize((int)screenWidth, (int)screenHeight);
-        addKeyListener(keyboard);
         graphics = g;
         graphics.setColor(new java.awt.Color(0, 0, 0));
         graphics.fillRect(0, 0, 800, 600);//Set the background to black
@@ -35,18 +39,8 @@ public class Window extends Applet implements KeyListener
     }
     
     
-    public double getScreenWidth()
-    { return screenWidth; }
-    
-    
-    public double getScreenHeight()
-    { return screenHeight; }
-    
-    
     public void drawBoard(int [][] board)
     {
-        
-        
         //draw elements
         for(int y = 0; y < board[0].length; y++)
         {
@@ -67,4 +61,26 @@ public class Window extends Applet implements KeyListener
             }
         }
     }
+    
+        
+    public double getScreenWidth()
+    { return screenWidth; }
+    
+    
+    public double getScreenHeight()
+    { return screenHeight; }
+    
+    
+    public void keyPressed(KeyEvent e)
+    {
+        System.out.println("Hi");
+    }
+    
+    
+    public void keyReleased(KeyEvent e)
+    { /*We don't take key released events*/ };
+    
+    
+    public void keyTyped(KeyEvent e)
+    { /*We don't take key typed events*/ };
 }

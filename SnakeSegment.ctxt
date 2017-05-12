@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=s
-comment0.target=SnakeSegment(SnakeSegment)
+comment0.params=s\ cS
+comment0.target=SnakeSegment(SnakeSegment,\ int)
 comment1.params=
 comment1.target=SnakeSegment()
 comment2.params=
@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=int\ getY()
 comment5.params=newX\ newY
 comment5.target=void\ setPositions(int,\ int)
-numComments=6
+comment6.params=g
+comment6.target=void\ draw(java.awt.Graphics)
+numComments=7

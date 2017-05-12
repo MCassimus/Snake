@@ -1,14 +1,17 @@
+import java.awt.Graphics;
+
 public class SnakeSegment 
 {
-    private int x, y;
+    private int x, y, cellSize;
     private SnakeSegment parent;
 
 
-    public SnakeSegment(SnakeSegment s) 
+    public SnakeSegment(SnakeSegment s, int cS) 
     {
         x = s.getX();
         y = s.getY();
         parent = s;
+        cellSize = cS;
     }
     
     
@@ -37,5 +40,12 @@ public class SnakeSegment
     {
         x = newX;
         y = newY;
+    }
+    
+    
+    public void draw(Graphics g)
+    {
+        g.setColor(java.awt.Color.BLACK);
+        g.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
     }
 }

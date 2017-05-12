@@ -1,13 +1,32 @@
 public class SnakeHead extends SnakeSegment
 {
-    //0 is right, 1 is up, 2 is left, 3 is down
-    int direction;
-     
+    char direction;
+    
     
     public SnakeHead(int initX, int initY)
     {
         super();
         setPositions(initX, initY);
-        direction = 0;
+        direction = 'r';
+    }
+    
+    
+    public void move()
+    {
+        switch (direction)
+        {
+        case 'r': //Right
+            setPositions(getX() + 1, getY());
+            break;
+        case 'u': //Up
+            setPositions(getX(), getY() + 1);
+            break;
+        case 'l': //Left
+            setPositions(getX() - 1, getY());
+            break;
+        case 'd': //Down
+            setPositions(getX(), getY() - 1); 
+            break;
+        }
     }
 }

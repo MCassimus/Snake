@@ -1,7 +1,6 @@
 #BlueJ class context
-comment0.params=gameBoard
-comment0.target=Food(int[][])
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Food\r\n
-comment1.params=
-comment1.target=void\ newPos()
+comment0.params=xCells\ yCells
+comment0.target=Food(int,\ int)
+comment1.params=maxX\ maxY
+comment1.target=void\ newPos(int,\ int)
 numComments=2
