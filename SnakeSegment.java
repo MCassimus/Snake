@@ -2,16 +2,15 @@ import java.awt.Graphics;
 
 public class SnakeSegment 
 {
-    private int x, y, cellSize;
+    private int x, y;
     private SnakeSegment parent;
 
 
-    public SnakeSegment(SnakeSegment s, int cS) 
+    public SnakeSegment(SnakeSegment s) 
     {
         x = s.getX();
         y = s.getY();
         parent = s;
-        cellSize = cS;
     }
     
     
@@ -25,6 +24,7 @@ public class SnakeSegment
     {
         x = parent.getX();
         y = parent.getY();
+        parent.move();
     }
     
     
@@ -43,7 +43,7 @@ public class SnakeSegment
     }
     
     
-    public void draw(Graphics g)
+    public void draw(Graphics g, int cellSize)
     {
         g.setColor(java.awt.Color.BLACK);
         g.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);

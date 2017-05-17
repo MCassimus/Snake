@@ -28,5 +28,6 @@ public class SnakeHead extends SnakeSegment
             setPositions(getX(), getY() - 1); 
             break;
         }
+        System.out.println("hey");
     }
 }

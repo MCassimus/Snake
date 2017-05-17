@@ -1,41 +1,50 @@
 public class Game
 {
-    int [][] board;
-    Window win;
-    SnakeHead snake;
+    int screenWidth, screenHeight, cellSize;
+    int[][] board;
+    SnakeHead snakeHead;
+    SnakeSegment lastSegment;
     Food food;
-    //board data aliases
-    private int emptyID = 0;//empty space
-    private int snakeID = 1;//represents a snake segment
-    private int foodID = 2;//represents food item
     
-    public Game(Window window)
+    
+    public Game(int screenWidth, int screenHeight)
     {
-        System.out.println("This is a test2");
-        win = window;
-        newGame();
+        //Create number of cells based on screenWidth
+        board = new int[screenWidth / 10][screenHeight / 10];
         
-        //while(snake.isAlive())
-       // {
-           // if(snake.update())//if update returns true, make new food
-            //    food.newPos();
-                
-           // window.drawBoard(board);
-       // }
+        newGame();
     }
+    
+    
+    public SnakeSegment getLastSegment()
+    { return lastSegment; }
+    
+    
+    public Food getFood()
+    { return food; }
     
     
     private void newGame()
     {
-        board = new int[(int)win.getScreenWidth() / 10][(int)win.getScreenHeight() / 10];
+        snakeHead = new SnakeHead(board.length / 4, board[0].length / 2);
+    }
+    
+    
+    public void drawObjects(java.awt.Graphics g)
+    {
+        food.draw(g, cellSize);
+        lastSegment.draw(g, cellSize);
+    }
+    
+    
+    public void updateObjects()
+    {
+        lastSegment.move();
+    }
+    
+    
+    public void keyPressed(char k)
+    {
         
-        //initialize board to all empty
-        for(int y = 0; y < board[0].length; y++)
-            for(int x = 0; x < board.length; x++)
-                board[x][y] = emptyID;
-                
-        //create objects
-        //snake = new Snake(board);
-        //food = new Food(board);
     }
 }

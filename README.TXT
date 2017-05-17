@@ -5,9 +5,9 @@ all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
 PROJECT TITLE: Snake
-PURPOSE OF PROJECT: Recreate Snake
+PURPOSE OF PROJECT: Replicate Classic Snake Game
 VERSION or DATE: 1.0
 HOW TO START THIS PROJECT: Right click on the window class, press "Run Applet" and make sure 
                            applet viewer is selected and than press enter
-AUTHORS: Michael Cassimus
+AUTHORS: Michael Cassimus, Greg Francis
 USER INSTRUCTIONS: This is snake. Im sure you know how to play.

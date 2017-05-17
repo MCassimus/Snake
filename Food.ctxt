@@ -1,6 +1,8 @@
 #BlueJ class context
-comment0.params=xCells\ yCells
-comment0.target=Food(int,\ int)
-comment1.params=maxX\ maxY
-comment1.target=void\ newPos(int,\ int)
-numComments=2
+comment0.params=g\ size
+comment0.target=void\ draw(java.awt.Graphics,\ int)
+comment1.params=
+comment1.target=int\ getX()
+comment2.params=
+comment2.target=int\ getY()
+numComments=3

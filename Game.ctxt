@@ -1,6 +1,16 @@
 #BlueJ class context
-comment0.params=window
-comment0.target=Game(Window)
+comment0.params=screenWidth\ screenHeight
+comment0.target=Game(int,\ int)
 comment1.params=
-comment1.target=void\ newGame()
-numComments=2
+comment1.target=SnakeSegment\ getLastSegment()
+comment2.params=
+comment2.target=Food\ getFood()
+comment3.params=
+comment3.target=void\ newGame()
+comment4.params=g
+comment4.target=void\ drawObjects(java.awt.Graphics)
+comment5.params=
+comment5.target=void\ updateObjects()
+comment6.params=k
+comment6.target=void\ keyPressed(char)
+numComments=7
