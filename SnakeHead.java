@@ -19,15 +19,20 @@ public class SnakeHead extends SnakeSegment
             setPositions(getX() + 1, getY());
             break;
         case 'u': //Up
-            setPositions(getX(), getY() + 1);
+            setPositions(getX(), getY() - 1);
             break;
         case 'l': //Left
             setPositions(getX() - 1, getY());
             break;
         case 'd': //Down
-            setPositions(getX(), getY() - 1); 
+            setPositions(getX(), getY() + 1); 
             break;
         }
-        System.out.println("hey");
+    }
+    
+    
+    public void changeDirection(char c)
+    {
+        direction = c;
     }
 }

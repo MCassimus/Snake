@@ -15,41 +15,38 @@ public class Window extends Applet implements KeyListener
 {
     private int screenWidth, screenHeight;
     private Game game;
-    boolean close = false;
     
     //This is the entry point of the application
     public void init()
     {
         screenWidth = 800;
         screenHeight = 600;
-        addKeyListener(this);
         resize(screenWidth, screenHeight);
         game = new Game(screenWidth, screenHeight);
+        addKeyListener(this);
     }
     
     
     public void paint(Graphics g)
     {  
         //Set the background to black
-        java.util.Random r = new java.util.Random();
-        g.setColor(new java.awt.Color(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+        g.setColor(java.awt.Color.BLACK);
         g.fillRect(0, 0, screenWidth, screenHeight);
         
         game.updateObjects();
         game.drawObjects(g);
         
-        if (close)
-            stop();
-
-        paint(g);
+        try 
+        { Thread.sleep(100); }
+        catch (Exception e) {}
+        
+       repaint();
     }
 
     
     public void keyPressed(KeyEvent e)
     {
-         game.keyPressed(e.getKeyChar());
-         if (e.getKeyChar() == 'f')
-            close = true;
+        game.keyPressed(e.getKeyChar());
     }
     
     

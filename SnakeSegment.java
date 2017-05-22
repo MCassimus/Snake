@@ -45,7 +45,7 @@ public class SnakeSegment
     
     public void draw(Graphics g, int cellSize)
     {
-        g.setColor(java.awt.Color.BLACK);
+        g.setColor(java.awt.Color.WHITE);
         g.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
     }
 }
