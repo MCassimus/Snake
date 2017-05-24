@@ -69,15 +69,39 @@ public class Game
     
     public void updateObjects()
     {
-        lastSegment.move();
-        //Check snake collisions
+        //Check if snake will hit itself
         int x = snakeHead.getX(), y = snakeHead.getY();
-        if (x < 0 || x >= xCells || y < 0 || y >= yCells) //Snake goes offscreen
-            gameOver();
-        else if (x == food.getX() && y == food.getY()) //Snake gets food
+        switch(snakeHead.getDirection())
         {
-            newFoodPos();
-            lastSegment = new SnakeSegment(lastSegment);
+        case 'r':
+            x++;
+            break;
+        case 'u':
+            y--;
+            break;
+        case 'l':
+            x--;
+            break;
+        case 'd':
+            y++;
+            break;
+        }
+        
+        if (snakeOccupies(x, y))
+            gameOver();
+        else
+        {
+            lastSegment.move();
+            //Check if snake hit food
+            x = snakeHead.getX(); 
+            y = snakeHead.getY(); //Reupdate variables
+            if (x < 0 || x >= xCells || y < 0 || y >= yCells) //Snake goes offscreen
+                gameOver();
+            else if (x == food.getX() && y == food.getY()) //Snake gets food
+            {
+                newFoodPos();
+                lastSegment = new SnakeSegment(lastSegment);
+            }
         }
     }
     
@@ -85,12 +109,12 @@ public class Game
     public void keyPressed(char c)
     {
         if (c == 'd')
-            snakeHead.changeDirection('r');
+            snakeHead.setDirection('r');
         else if (c == 'w')
-            snakeHead.changeDirection('u');
+            snakeHead.setDirection('u');
         else if (c == 'a')
-            snakeHead.changeDirection('l');
+            snakeHead.setDirection('l');
         else if (c == 's')
-            snakeHead.changeDirection('d');
+            snakeHead.setDirection('d');
     }
 }

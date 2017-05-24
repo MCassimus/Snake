@@ -31,7 +31,7 @@ public class SnakeHead extends SnakeSegment
     }
     
     
-    public void changeDirection(char newD)
+    public void setDirection(char newD)
     {
         //Make sure player is not reversing direction
         boolean valid = true;
@@ -47,4 +47,8 @@ public class SnakeHead extends SnakeSegment
         if (valid)
             direction = newD;
     }
+    
+    
+    public char getDirection()
+    { return direction; }
 }

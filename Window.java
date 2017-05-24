@@ -24,16 +24,16 @@ public class Window extends Applet implements KeyListener
     
     public void paint(Graphics g)
     {  
-        //Set the background to black
-        g.setColor(java.awt.Color.BLACK);
-        g.fillRect(0, 0, screenWidth, screenHeight);
+       //Set the background to black
+       g.setColor(java.awt.Color.BLACK);
+       g.fillRect(0, 0, screenWidth, screenHeight);
+       
+       game.updateObjects();
+       game.drawObjects(g);
         
-        game.updateObjects();
-        game.drawObjects(g);
-        
-        try 
-        { Thread.sleep(100); }
-        catch (Exception e) {}
+       try //Time delay, 10 frames per second
+       { Thread.sleep(100); }
+       catch (Exception e) {}
         
        repaint();
     }
