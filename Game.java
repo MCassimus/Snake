@@ -1,7 +1,8 @@
+import java.util.Random;
+
 public class Game
 {
-    int screenWidth, screenHeight, cellSize;
-    int[][] board;
+    int cellSize, xCells, yCells;
     SnakeHead snakeHead;
     SnakeSegment lastSegment;
     Food food;
@@ -10,38 +11,74 @@ public class Game
     public Game(int screenWidth, int screenHeight)
     {
         //Create number of cells based on screen dimensions
-        board = new int[screenWidth / 10][screenHeight / 10];
         cellSize = 10;
-        
+        xCells = screenWidth / cellSize;
+        yCells = screenHeight / cellSize;
+        food = new Food();
+                
         newGame();
     }
     
     
-    public SnakeSegment getLastSegment()
-    { return lastSegment; }
-    
-    
-    public Food getFood()
-    { return food; }
-    
-    
     private void newGame()
     {
-        snakeHead = new SnakeHead(board.length / 4, board[0].length / 2);
+        Random r = new Random();
+        snakeHead = new SnakeHead(r.nextInt(xCells / 2), r.nextInt(yCells / 2));
         lastSegment = snakeHead;
+        lastSegment = new SnakeSegment(lastSegment);
+        newFoodPos();
     }
     
     
-    public void drawObjects(java.awt.Graphics g)
+    private void gameOver()
     {
-       // food.draw(g, cellSize);
-        lastSegment.draw(g, cellSize);
+        newGame();
+    }
+    
+    
+    private void newFoodPos()
+    {
+        Random r = new Random();
+        int x, y;
+        
+        do
+        {
+            x = r.nextInt(xCells);
+            y = r.nextInt(yCells);
+        } while (snakeOccupies(x, y));
+        
+        food.setPositions(x, y);
+    }
+    
+    
+    private boolean snakeOccupies(int x, int y)
+    {
+        boolean occupied = false;
+        if (lastSegment.occupies(x, y))
+            occupied = true;
+        return occupied;
+    }
+    
+    
+        public void drawObjects(java.awt.Graphics g)
+    {
+       food.draw(g, cellSize);
+       lastSegment.draw(g, cellSize);
     }
     
     
     public void updateObjects()
     {
         lastSegment.move();
+        //Check snake collisions
+        int x = snakeHead.getX(), y = snakeHead.getY();
+        if (x < 0 || x >= xCells || y < 0 || y >= yCells) //Snake goes offscreen
+            gameOver();
+        else if (x == food.getX() && y == food.getY()) //Snake gets food
+        {
+            newFoodPos();
+            lastSegment = new SnakeSegment(lastSegment);
+        }
     }
     
     

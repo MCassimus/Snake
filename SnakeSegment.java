@@ -28,6 +28,20 @@ public class SnakeSegment
     }
     
     
+    /**
+     * Checks if any spot on snake occupies a cell
+     */
+    public boolean occupies(int occX, int occY)
+    {
+        if (x == occX && y == occY)
+            return true;
+        else if (parent != null)
+            return parent.occupies(occX, occY);
+        else
+            return false;
+    }
+    
+    
     public int getX()
     { return x; }
         
@@ -45,7 +59,9 @@ public class SnakeSegment
     
     public void draw(Graphics g, int cellSize)
     {
-        g.setColor(java.awt.Color.WHITE);
+        g.setColor(new java.awt.Color(0, 193, 64));
         g.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+        if (parent != null)
+            parent.draw(g, cellSize);
     }
 }

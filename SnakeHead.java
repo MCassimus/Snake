@@ -31,8 +31,20 @@ public class SnakeHead extends SnakeSegment
     }
     
     
-    public void changeDirection(char c)
+    public void changeDirection(char newD)
     {
-        direction = c;
+        //Make sure player is not reversing direction
+        boolean valid = true;
+        if (direction == 'r' && newD == 'l')
+            valid = false;
+        else if (direction == 'u' && newD == 'd')
+            valid = false;
+        else if (direction == 'l' && newD == 'r')
+            valid = false;
+        else if (direction == 'd' && newD == 'u')
+            valid = false;
+        
+        if (valid)
+            direction = newD;
     }
 }

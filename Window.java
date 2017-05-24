@@ -1,14 +1,9 @@
 import java.applet.Applet;
 import java.awt.Graphics;
 import java.awt.Color;
-import java.awt.Component;
+//import java.awt.Component;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
-
-//https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyListener.html
-//https://docs.oracle.com/javase/7/docs/api/java/awt/Component.html#addKeyListener(java.awt.event.KeyListener)
-//https://docs.oracle.com/javase/7/docs/api/java/applet/Applet.html
-//https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
 
 
 public class Window extends Applet implements KeyListener
